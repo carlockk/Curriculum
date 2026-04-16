@@ -31,7 +31,7 @@ export default function Footer() {
               Telefono
             </Typography>
             <Typography variant="body2" align="center">
-              +56 9 5601 5863
+              +56985885018
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
