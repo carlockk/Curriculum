@@ -88,7 +88,15 @@ export default function App() {
                   <Avatar
                     src="https://coffeewaffles.cl/yo.jpg"
                     alt="Carlos Enrique Castillo Garcia"
-                    sx={{ width: 64, height: 64, border: "2px solid rgba(255,255,255,0.7)" }}
+                    sx={{
+                      width: { xs: 74, md: 82 },
+                      height: { xs: 74, md: 82 },
+                      border: mode === "light" ? "2.5px solid rgba(255,255,255,0.92)" : "2.5px solid rgba(255,255,255,0.78)",
+                      boxShadow:
+                        mode === "light"
+                          ? "0 10px 28px rgba(19,35,47,0.14)"
+                          : "0 10px 28px rgba(0,0,0,0.28)",
+                    }}
                   />
                   <Chip label="Full Stack / Chile" color="secondary" variant="outlined" />
                 </Stack>
