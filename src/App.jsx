@@ -76,8 +76,15 @@ export default function App() {
                 minHeight: { xs: 440, md: 520 },
               }}
             >
-              <Box sx={{ maxWidth: 760 }}>
-                <Stack direction="row" spacing={1.2} alignItems="center" sx={{ mb: 2 }}>
+              <Box
+                sx={{
+                  maxWidth: 820,
+                  mx: "auto",
+                  width: "100%",
+                  textAlign: "center",
+                }}
+              >
+                <Stack direction="row" spacing={1.2} alignItems="center" justifyContent="center" sx={{ mb: 2 }}>
                   <Avatar
                     src="https://coffeewaffles.cl/yo.jpg"
                     alt="Carlos Enrique Castillo Garcia"
@@ -86,14 +93,52 @@ export default function App() {
                   <Chip label="Full Stack / Chile" color="secondary" variant="outlined" />
                 </Stack>
 
-                <Typography variant="h2" sx={{ fontSize: { xs: "2.5rem", md: "4.5rem" }, maxWidth: 700 }}>
+                <Typography
+                  variant="h2"
+                  sx={{
+                    fontSize: { xs: "2.45rem", md: "4.15rem" },
+                    maxWidth: 780,
+                    mx: "auto",
+                    fontWeight: 500,
+                    lineHeight: { xs: 1.02, md: 0.98 },
+                    letterSpacing: { xs: "0.06em", md: "0.12em" },
+                    fontFamily: '"Cormorant Garamond", serif',
+                    textTransform: "uppercase",
+                    textWrap: "balance",
+                  }}
+                >
                   Carlos Enrique Castillo Garcia
                 </Typography>
-                <Typography variant="h6" color="text.secondary" sx={{ mt: 2, maxWidth: 720, lineHeight: 1.7, fontWeight: 400 }}>
+
+                <Box
+                  sx={{
+                    width: { xs: 220, md: 340 },
+                    height: 1,
+                    mx: "auto",
+                    mt: 1.75,
+                    borderRadius: 999,
+                    background:
+                      mode === "light"
+                        ? "linear-gradient(90deg, rgba(19,35,47,0) 0%, rgba(19,35,47,0.2) 18%, rgba(180,83,9,0.38) 50%, rgba(19,35,47,0.2) 82%, rgba(19,35,47,0) 100%)"
+                        : "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.14) 18%, rgba(212,212,212,0.34) 50%, rgba(255,255,255,0.14) 82%, rgba(255,255,255,0) 100%)",
+                  }}
+                />
+
+                <Typography
+                  variant="h6"
+                  color="text.secondary"
+                  sx={{
+                    mt: 2.5,
+                    maxWidth: 720,
+                    mx: "auto",
+                    lineHeight: 1.7,
+                    fontWeight: 400,
+                  }}
+                >
                   Desarrollador Full Stack con experiencia en sistemas institucionales, plataformas productivas y soluciones a medida para operacion real. La meta no es solo que se vea moderno: tiene que comunicar criterio, confianza y trayectoria.
                 </Typography>
 
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 3 }}>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} justifyContent="center" sx={{ mt: 3 }}>
                   <Button
                     variant="contained"
                     href="https://github.com/carlockk"
@@ -108,7 +153,7 @@ export default function App() {
                   </Button>
                 </Stack>
 
-                <Stack direction={{ xs: "column", md: "row" }} spacing={1.4} sx={{ mt: 4 }}>
+                <Stack direction={{ xs: "column", md: "row" }} spacing={1.4} justifyContent="center" sx={{ mt: 4 }}>
                   {metrics.map((metric) => (
                     <Box
                       key={metric.label}
@@ -121,7 +166,7 @@ export default function App() {
                         borderColor: "rgba(128,128,128,0.22)",
                       }}
                     >
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
                         {metric.label}
                       </Typography>
                       <Typography variant="h6">{metric.value}</Typography>
