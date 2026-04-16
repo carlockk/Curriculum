@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 
 const pillars = [
-  "Mas de 15 anos construyendo y manteniendo sistemas web en produccion.",
+  "Mas de 15 años construyendo y manteniendo sistemas web en produccion.",
   "Experiencia real en PHP, ASP.NET, Node.js, React, Next.js y MySQL.",
   "Criterio de producto: arquitectura, UX, despliegue y mejoras continuas.",
   "Actualizacion reciente con bootcamp Full Stack UDD en 2025.",
@@ -57,7 +57,7 @@ export default function AboutTabs() {
             Desarrollo full stack con foco en sistemas utiles y bien aterrizados.
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.9 }}>
-            Soy desarrollador full stack y durante anos he trabajado creando, manteniendo y mejorando
+            Soy desarrollador full stack y durante años he trabajado creando, manteniendo y mejorando
             sistemas que responden a necesidades reales. Me interesa que cada proyecto funcione bien en
             lo tecnico, pero tambien que tenga sentido para el negocio, para la operacion diaria y para
             las personas que finalmente lo usan.
