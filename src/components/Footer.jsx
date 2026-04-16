@@ -1,4 +1,7 @@
-import { Box, Typography, Grid, Container, Link, useTheme } from "@mui/material";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import { Box, Typography, Grid, Container, Link, Stack, useTheme } from "@mui/material";
 
 export default function Footer() {
   const theme = useTheme();
@@ -19,25 +22,34 @@ export default function Footer() {
       <Container maxWidth="md">
         <Grid container spacing={2} justifyContent="center">
           <Grid item xs={12} sm={4}>
-            <Typography variant="subtitle2" gutterBottom align="center">
-              Email
-            </Typography>
+            <Stack direction="row" spacing={0.75} justifyContent="center" alignItems="center" sx={{ mb: 0.5 }}>
+              <EmailOutlinedIcon sx={{ fontSize: 16, opacity: 0.82 }} />
+              <Typography variant="subtitle2" gutterBottom={false} align="center">
+                Email
+              </Typography>
+            </Stack>
             <Typography variant="body2" align="center">
               carlos.virtualdesk@gmail.com
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="subtitle2" gutterBottom align="center">
-              Telefono
-            </Typography>
+            <Stack direction="row" spacing={0.75} justifyContent="center" alignItems="center" sx={{ mb: 0.5 }}>
+              <LocalPhoneOutlinedIcon sx={{ fontSize: 16, opacity: 0.82 }} />
+              <Typography variant="subtitle2" gutterBottom={false} align="center">
+                Telefono
+              </Typography>
+            </Stack>
             <Typography variant="body2" align="center">
               +56985885018
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="subtitle2" gutterBottom align="center">
-              GitHub
-            </Typography>
+            <Stack direction="row" spacing={0.75} justifyContent="center" alignItems="center" sx={{ mb: 0.5 }}>
+              <GitHubIcon sx={{ fontSize: 16, opacity: 0.82 }} />
+              <Typography variant="subtitle2" gutterBottom={false} align="center">
+                GitHub
+              </Typography>
+            </Stack>
             <Typography variant="body2" align="center">
               <Link href="https://github.com/carlockk" target="_blank" rel="noopener noreferrer" underline="hover" color="inherit">
                 github.com/carlockk
