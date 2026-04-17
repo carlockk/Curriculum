@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 
 const pillars = [
-  "Mas de 15 años construyendo y manteniendo sistemas web en produccion.",
-  "Experiencia real en PHP, ASP.NET, Node.js, React, Next.js y MySQL.",
+  "Mas de 15 años construyendo y manteniendo sistemas y servidores web en produccion, viemdo su constante evolución a través del tiempo.",
+  "Experiencia en lenguajes PHP, ASP, Node.js, React, JavaScript moderno y convencional,  Next.js y MySQL.",
   "Criterio de producto: arquitectura, UX, despliegue y mejoras continuas.",
+  "Diseño y tratamiento de imágenes con Canva, Adobe Photoshop, CSS y framework Tailwind, Miui",
   "Actualizacion reciente con bootcamp Full Stack UDD en 2025.",
 ];
 

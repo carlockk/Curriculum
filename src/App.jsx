@@ -92,19 +92,36 @@ export default function App() {
                 }}
               >
                 <Stack direction="row" spacing={1.2} alignItems="center" justifyContent="center" sx={{ mb: 2 }}>
-                  <Avatar
-                    src="https://coffeewaffles.cl/yo.jpg"
-                    alt="Carlos Enrique Castillo Garcia"
-                    sx={{
-                      width: { xs: 74, md: 82 },
-                      height: { xs: 74, md: 82 },
-                      border: mode === "light" ? "2.5px solid rgba(255,255,255,0.92)" : "2.5px solid rgba(255,255,255,0.78)",
-                      boxShadow:
-                        mode === "light"
-                          ? "0 10px 28px rgba(19,35,47,0.14)"
-                          : "0 10px 28px rgba(0,0,0,0.28)",
-                    }}
-                  />
+                  <Box
+                    component="a"
+                    href="/CV_Carlos_Enrique_Castillo_Garcia.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir curriculum en PDF"
+                    sx={{ display: "inline-flex", borderRadius: "50%" }}
+                  >
+                    <Avatar
+                      src="https://coffeewaffles.cl/yo.jpg"
+                      alt="Carlos Enrique Castillo Garcia"
+                      sx={{
+                        width: { xs: 74, md: 82 },
+                        height: { xs: 74, md: 82 },
+                        border: mode === "light" ? "2.5px solid rgba(255,255,255,0.92)" : "2.5px solid rgba(255,255,255,0.78)",
+                        boxShadow:
+                          mode === "light"
+                            ? "0 10px 28px rgba(19,35,47,0.14)"
+                            : "0 10px 28px rgba(0,0,0,0.28)",
+                        transition: "transform 180ms ease, box-shadow 180ms ease",
+                        "&:hover": {
+                          transform: "translateY(-1px)",
+                          boxShadow:
+                            mode === "light"
+                              ? "0 14px 32px rgba(19,35,47,0.18)"
+                              : "0 14px 32px rgba(0,0,0,0.34)",
+                        },
+                      }}
+                    />
+                  </Box>
                   <Chip label="Full Stack / Chile" color="secondary" variant="outlined" />
                 </Stack>
 
