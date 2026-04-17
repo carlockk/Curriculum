@@ -7,7 +7,7 @@ export default function Cursos() {
     {
       title: "Bootcamp Desarrollo Web Full Stack",
       body: "Universidad del Desarrollo, enero 2025 a julio 2025. Refuerza React, Node.js, Next.js, Tailwind, PHP, Laravel, MySQL y MongoDB.",
-      link: "https://collection.cloudinary.com/dlv2oekbg/82756fc17cd56dba309d32e9c4bcde27",
+      link: "/CV_Carlos_Enrique_Castillo_Garcia.pdf",
     },
     {
       title: "Administracion Linux CentOS / RedHat",
