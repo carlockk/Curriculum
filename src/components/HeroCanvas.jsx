@@ -3,6 +3,7 @@ import { Box, useTheme } from "@mui/material";
 
 export default function HeroCanvas() {
   const canvasRef = useRef(null);
+  const frameRef = useRef(null);
   const theme = useTheme();
 
   useEffect(() => {
@@ -15,6 +16,7 @@ export default function HeroCanvas() {
     let animationFrame;
     let particles = [];
     const mouse = { x: -9999, y: -9999, active: false };
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
 
     const colors =
       theme.palette.mode === "light"
@@ -24,13 +26,13 @@ export default function HeroCanvas() {
     const resize = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-      canvas.width = width * window.devicePixelRatio;
-      canvas.height = height * window.devicePixelRatio;
+      canvas.width = width * pixelRatio;
+      canvas.height = height * pixelRatio;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      context.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
-      const amount = Math.max(55, Math.floor(width / 24));
+      const amount = Math.max(48, Math.floor(width / 30));
       particles = Array.from({ length: amount }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -42,8 +44,9 @@ export default function HeroCanvas() {
     };
 
     const draw = () => {
-      const width = canvas.width / window.devicePixelRatio;
-      const height = canvas.height / window.devicePixelRatio;
+      const width = canvas.width / pixelRatio;
+      const height = canvas.height / pixelRatio;
+      const strokeDenominator = theme.palette.mode === "light" ? 900 : 980;
 
       context.clearRect(0, 0, width, height);
 
@@ -83,8 +86,8 @@ export default function HeroCanvas() {
             context.lineTo(other.x, other.y);
             context.strokeStyle =
               theme.palette.mode === "light"
-                ? `rgba(23,107,135,${0.15 - distance / 900})`
-                : `rgba(214,228,255,${0.15 - distance / 980})`;
+                ? `rgba(23,107,135,${0.15 - distance / strokeDenominator})`
+                : `rgba(214,228,255,${0.15 - distance / strokeDenominator})`;
             context.lineWidth = 1;
             context.stroke();
           }
@@ -95,9 +98,13 @@ export default function HeroCanvas() {
     };
 
     const handleMouseMove = (event) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-      mouse.active = true;
+      if (frameRef.current !== null) return;
+      frameRef.current = window.requestAnimationFrame(() => {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+        mouse.active = true;
+        frameRef.current = null;
+      });
     };
 
     const handleMouseLeave = () => {
@@ -110,12 +117,15 @@ export default function HeroCanvas() {
     draw();
 
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseout", handleMouseLeave);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mouseout", handleMouseLeave, { passive: true });
     return () => {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseout", handleMouseLeave);
+      if (frameRef.current !== null) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
       window.cancelAnimationFrame(animationFrame);
     };
   }, [theme.palette.mode]);
@@ -130,6 +140,7 @@ export default function HeroCanvas() {
         opacity: 0.95,
         pointerEvents: "none",
         zIndex: 0,
+        willChange: "transform, opacity",
       }}
     >
       <canvas ref={canvasRef} />

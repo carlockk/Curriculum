@@ -104,6 +104,7 @@ export default function TopBar({ mode, toggleMode }) {
         onClose={() => setOpen(false)}
         transitionDuration={400}
         ModalProps={{
+          keepMounted: true,
           BackdropProps: {
             sx: {
               backgroundColor: "rgba(5, 9, 14, 0.34)",
@@ -118,6 +119,7 @@ export default function TopBar({ mode, toggleMode }) {
             height: "100vh",
             px: 3,
             py: 4,
+            willChange: "transform",
             background:
               mode === "light"
                 ? "linear-gradient(180deg, #f8f4ed 0%, #efe4d2 100%)"

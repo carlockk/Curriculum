@@ -1,15 +1,20 @@
-import { useState, useMemo, useEffect } from "react";
+import { lazy, Suspense, useState, useMemo, useEffect } from "react";
 import { CssBaseline, Container, Typography, Box, Button, Stack, Avatar, Chip } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import getTheme from "./theme";
-import AboutTabs from "./components/AboutTabs";
-import Experience from "./components/Experience";
-import Skills from "./components/Skills";
 import Footer from "./components/Footer";
-import Cursos from "./components/Cursos";
 import TopBar from "./components/TopBar";
-import HeroCanvas from "./components/HeroCanvas";
+
+const HeroCanvas = lazy(() => import("./components/HeroCanvas"));
+const AboutTabs = lazy(() => import("./components/AboutTabs"));
+const Experience = lazy(() => import("./components/Experience"));
+const Skills = lazy(() => import("./components/Skills"));
+const Cursos = lazy(() => import("./components/Cursos"));
+
+function SectionFallback({ minHeight = 220 }) {
+  return <Box sx={{ minHeight }} />;
+}
 
 export default function App() {
   const [mode, setMode] = useState(() =>
@@ -37,7 +42,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <HeroCanvas />
+      <Suspense fallback={null}>
+        <HeroCanvas />
+      </Suspense>
 
       <TopBar mode={mode} toggleMode={() => setMode((current) => (current === "light" ? "dark" : "light"))} />
 
@@ -193,12 +200,16 @@ export default function App() {
           viewport={{ once: true }}
           style={{ marginTop: 32 }}
         >
-          <AboutTabs />
+          <Suspense fallback={<SectionFallback minHeight={360} />}>
+            <AboutTabs />
+          </Suspense>
         </motion.div>
 
         <Box sx={{ mt: 3 }}>
           <Box id="experiencia">
-            <Experience />
+            <Suspense fallback={<SectionFallback minHeight={320} />}>
+              <Experience />
+            </Suspense>
           </Box>
         </Box>
 
@@ -209,7 +220,9 @@ export default function App() {
           viewport={{ once: true }}
           style={{ marginTop: 24 }}
         >
-          <Skills />
+          <Suspense fallback={<SectionFallback minHeight={280} />}>
+            <Skills />
+          </Suspense>
         </motion.div>
 
         <motion.div
@@ -219,7 +232,9 @@ export default function App() {
           viewport={{ once: true }}
           style={{ marginTop: 24 }}
         >
-          <Cursos />
+          <Suspense fallback={<SectionFallback minHeight={240} />}>
+            <Cursos />
+          </Suspense>
         </motion.div>
       </Container>
 
