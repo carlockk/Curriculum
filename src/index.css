@@ -27,6 +27,32 @@ a {
   min-height: 100vh;
 }
 
+.mac-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(140, 140, 140, 0.45) transparent;
+}
+
+.mac-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.mac-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mac-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(176, 176, 176, 0.42) 0%, rgba(128, 128, 128, 0.58) 100%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.mac-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(165, 165, 165, 0.58) 0%, rgba(118, 118, 118, 0.72) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
 .trajectory-stack {
   display: flex;
   flex-direction: column;
