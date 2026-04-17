@@ -73,7 +73,11 @@ export default function TopBar({ mode, toggleMode }) {
               size="small"
               sx={{
                 display: { xs: "none", sm: "inline-flex" },
-                bgcolor: mode === "light" ? "rgba(19,35,47,0.06)" : "rgba(255,255,255,0.08)",
+                bgcolor: "transparent",
+                border: 0,
+                ".MuiChip-label": {
+                  px: 0,
+                },
               }}
             />
             <Button
@@ -82,7 +86,7 @@ export default function TopBar({ mode, toggleMode }) {
               onClick={() => setOpen(true)}
               sx={{
                 fontSize: "0.75rem",
-                borderRadius: 1,
+                borderRadius: 0.5,
                 borderColor: "divider",
                 color: "inherit",
                 px: 1.8,
