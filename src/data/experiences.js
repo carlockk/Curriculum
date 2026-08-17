@@ -7,7 +7,7 @@ const experiencias = [
     descripcionCompleta:
       "Trabajo independiente orientado a producto: levantamiento, arquitectura, desarrollo full stack, despliegue y mejoras continuas para soluciones usadas en operacion.",
     link: "https://virtualdesk.vercel.app",
-    cta: "Ver estudio"
+    cta: "Ir al proyecto..."
   },
   {
     id: 2,
