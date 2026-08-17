@@ -59,10 +59,11 @@ const moreProjects = [
     thumbnail: "https://image.thum.io/get/width/720/crop/768/https://medievo.netlify.app/",
   },
   {
-    title: "App Android de nutricion",
-    description: "Aplicacion en desarrollo para calcular nutrientes a partir de la ingesta de alimentos.",
-    link: "https://github.com/carlockk/nutcal",
-    thumbnail: "https://opengraph.githubassets.com/1/carlockk/nutcal",
+    title: "Dreamcity.cl",
+    description:
+      "Plataforma de reservas de inmuebles estilo Airbnb y Booking, con APIs que sincronizan disponibilidad, administracion centralizada y bot personalizado para consultas del sistema de reservas.",
+    link: "https://dreamcity.cl/",
+    thumbnail: "https://image.thum.io/get/width/720/crop/768/https://dreamcity.cl/",
   },
   {
     title: "Sistema de punto de venta POS",

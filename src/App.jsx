@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState, useMemo, useEffect } from "react";
 import { CssBaseline, Container, Typography, Box, Button, Stack, Avatar, Chip } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { motion } from "framer-motion";
 import getTheme from "./theme";
 import Footer from "./components/Footer";
@@ -256,6 +257,51 @@ export default function App() {
       </Container>
 
       <Footer />
+
+      <Box
+        component="a"
+        href="https://wa.me/56985885018?text=Hola%20Carlos%2C%20me%20gustaria%20conversar%20contigo."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Conversar por WhatsApp"
+        sx={{
+          position: "fixed",
+          right: { xs: 18, sm: 28 },
+          bottom: { xs: 18, sm: 28 },
+          zIndex: 10,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 1,
+          py: 0.7,
+          pl: 0.8,
+          pr: { xs: 0.8, sm: 1.6 },
+          borderRadius: 999,
+          bgcolor: "#25D366",
+          color: "#ffffff",
+          boxShadow: "0 10px 28px rgba(15, 97, 50, 0.34)",
+          transition: "transform 180ms ease, box-shadow 180ms ease",
+          "&:hover": {
+            transform: "translateY(-3px)",
+            boxShadow: "0 14px 34px rgba(15, 97, 50, 0.42)",
+          },
+        }}
+      >
+        <Box
+          sx={{
+            width: 42,
+            height: 42,
+            borderRadius: "50%",
+            display: "grid",
+            placeItems: "center",
+            bgcolor: "rgba(255,255,255,0.16)",
+          }}
+        >
+          <WhatsAppIcon sx={{ fontSize: 27 }} />
+        </Box>
+        <Typography sx={{ display: { xs: "none", sm: "block" }, fontSize: "0.92rem", fontWeight: 700 }}>
+          Conversemos...
+        </Typography>
+      </Box>
     </ThemeProvider>
   );
 }
